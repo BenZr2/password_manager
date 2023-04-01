@@ -5,7 +5,7 @@ from cryptography.fernet import Fernet
 
 window = tk.Tk()
 window.title("Password Manager")
-window.geometry("500x500")
+window.geometry("300x200")
 
 def encrypt_password():
     master_password = master_password_entry.get()
@@ -34,25 +34,25 @@ def decrypt_password():
     password_label.config(text=password_string)
 
 
-master_password_label = tk.Label(window, text="Enter your master password:")
-master_password_label.pack()
+master_password_label = tk.Label(window, text="Enter your master password\n for decryption:")
+master_password_label.grid(row=0, column=0, pady=10)
 
 master_password_entry = tk.Entry(window, show="*")
-master_password_entry.pack()
+master_password_entry.grid(row=1, column=0)
 
-label = tk.Label(window, text="Enter your password:")
-label.pack()
+label = tk.Label(window, text="Enter the password\n you want to encrypt:")
+label.grid(row=0, column=2, pady=10)
 
 password_entry = tk.Entry(window, show="*")
-password_entry.pack()
+password_entry.grid(row=1, column=2)
 
 encrypt_button = tk.Button(window, text="Encrypt Password", command=encrypt_password)
-encrypt_button.pack()
+encrypt_button.grid(row=3, column=2, pady=10)
 
 decrypt_button = tk.Button(window, text="Decrypt Password", command=decrypt_password)
-decrypt_button.pack()
+decrypt_button.grid(row=3, column=0, pady=10)
 
 password_label = tk.Label(window)
-password_label.pack()
+password_label.grid(row=6, column=0, pady=20)
 
 window.mainloop()
